@@ -12,11 +12,11 @@ class Quiz {
     private var currentRoundIndex = 0
     
     var currentRound: Answer {
-        rounds[currentRoundIndex]
+        return rounds[currentRoundIndex]
     }
     
     var totalRounds: Int {
-        rounds.count
+        rounds.count - 1
     }
     
     func advanceRound() {

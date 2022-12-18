@@ -10,7 +10,7 @@ import AVFoundation
 
 struct QuizView: View {
     var chords = ChordPlayer()
-    @StateObject var viewModel = QuizViewModel()
+    @ObservedObject var viewModel = QuizViewModel()
     
     @State var score = 0
     @State var roundsPlayed = 0
@@ -23,6 +23,9 @@ struct QuizView: View {
     var body: some View {
         let randChord = viewModel.correctAnswerText
         VStack {
+          Text("Current Round \(roundsPlayed) out of \(viewModel.totalRounds)")
+          Text("Your score \(score)")
+          Text("Correct answer \(viewModel.correctAnswerText)")
             Text("What chord is this?")
             Button("Play Chord Again") {
                 self.chords.playChord(chord: randChord, instrument: currentInst)
@@ -35,7 +38,7 @@ struct QuizView: View {
         VStack {
             HStack {
                 Button(viewModel.answerText()[0]) {
-                    if roundsPlayed < viewModel.totalRounds {
+                    if roundsPlayed < viewModel.totalRounds - 1 {
                         roundsPlayed += 1
                     }
                     else {
@@ -44,15 +47,25 @@ struct QuizView: View {
                     if viewModel.answerText()[0] == randChord {
                         score += 1
                     }
-                    viewModel.advanceGame()
                     self.chords.playChord(chord: randChord, instrument: currentInst)
+                    viewModel.advanceGame()
                 }
                 .foregroundColor(Color.black)
                 .frame(width: 150, height: 150)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(viewModel.answerText()[1]) {
-                    viewModel.advanceGame()
+                  if roundsPlayed < viewModel.totalRounds - 1 {
+                      roundsPlayed += 1
+                  }
+                  else {
+                      showingAlert.toggle()
+                  }
+                  if viewModel.answerText()[1] == randChord {
+                      score += 1
+                  }
+                  self.chords.playChord(chord: randChord, instrument: currentInst)
+                  viewModel.advanceGame()
                 }
                 .foregroundColor(Color.black)
                 .frame(width: 150, height: 150)
@@ -63,14 +76,34 @@ struct QuizView: View {
         VStack {
             HStack {
                 Button(viewModel.answerText()[2]) {
-                    viewModel.advanceGame()
+                  if roundsPlayed < viewModel.totalRounds - 1 {
+                      roundsPlayed += 1
+                  }
+                  else {
+                      showingAlert.toggle()
+                  }
+                  if viewModel.answerText()[2] == randChord {
+                      score += 1
+                  }
+                  self.chords.playChord(chord: randChord, instrument: currentInst)
+                  viewModel.advanceGame()
                 }
                 .foregroundColor(Color.black)
                 .frame(width: 150, height: 150)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(viewModel.answerText()[3]) {
-                    viewModel.advanceGame()
+                  if roundsPlayed < viewModel.totalRounds - 1 {
+                      roundsPlayed += 1
+                  }
+                  else {
+                      showingAlert.toggle()
+                  }
+                  if viewModel.answerText()[3] == randChord {
+                      score += 1
+                  }
+                  self.chords.playChord(chord: randChord, instrument: currentInst)
+                  viewModel.advanceGame()
                 }
                 .foregroundColor(Color.black)
                 .frame(width: 150, height: 150)
@@ -78,11 +111,6 @@ struct QuizView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
             }
         }
-        
-        .onAppear {
-            self.chords.playChord(chord: randChord, instrument: currentInst)
-        }
-        
         .alert("You got \(score) right out of \(viewModel.totalRounds)!", isPresented: $showingAlert) {
             Button("Yay!") {
                 presentation.wrappedValue.dismiss()
