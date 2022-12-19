@@ -25,7 +25,7 @@ struct QuizView: View {
         VStack {
             //Text("Current Round: \(roundsPlayed) out of \(viewModel.totalRounds)")
             //Text("Your score \(score)")
-            //Text("Correct answer \(viewModel.correctAnswerText)")
+            Text("Correct answer \(viewModel.correctAnswerText)")
             Text("What chord is this?").font(.largeTitle)
             Button("Play Chord") {
                 self.chords.playChord(chord: randChord, instrument: currentInst)

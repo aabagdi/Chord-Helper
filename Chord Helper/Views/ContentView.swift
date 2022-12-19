@@ -88,10 +88,5 @@ struct ContentView: View {
                 QuizView(currentInst: $currentInst)
             }
         }
-        .onAppear {
-            if quizOn {
-                quizOn.toggle()
-            }
-        }
     }
 }

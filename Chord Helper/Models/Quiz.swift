@@ -19,7 +19,7 @@ class Quiz {
     private var currentRoundIndex = 0
     
     var currentRound: Answer {
-        return rounds[currentRoundIndex]
+        rounds[currentRoundIndex]
     }
     
     var totalRounds: Int {

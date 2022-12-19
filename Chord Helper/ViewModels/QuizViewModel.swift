@@ -19,7 +19,7 @@ class QuizViewModel: ObservableObject {
     }
     
     var totalRounds: Int {
-        return game.totalRounds
+        game.totalRounds
     }
     
     func advanceGame() {
