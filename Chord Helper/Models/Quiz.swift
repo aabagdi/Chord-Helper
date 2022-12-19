@@ -24,5 +24,14 @@ class Quiz {
         currentRoundIndex = nextRoundIndex
     }
     
+    func resetAnswers() {
+        currentRoundIndex = 0
+        var newAnswers = [Answer]()
+        for _ in 1...Answer.allAnswers.count {
+            let new = Answer.init()
+            newAnswers.append(new)
+        }
+        Answer.allAnswers = newAnswers
+    }
+    
 }
-

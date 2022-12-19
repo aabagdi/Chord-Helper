@@ -47,11 +47,13 @@ struct Answer {
         self.possibleAnswers = answer.1
     }
     
-    static let allAnswers: [Answer] = [
+    static var allAnswers: [Answer] = [
+        Answer(),
         Answer(),
         Answer(),
         Answer(),
         Answer(),
         Answer()
     ]
+    
 }

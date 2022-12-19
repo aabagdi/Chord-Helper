@@ -23,9 +23,9 @@ struct QuizView: View {
     var body: some View {
         let randChord = viewModel.correctAnswerText
         VStack {
-          Text("Current Round: \(roundsPlayed) out of \(viewModel.totalRounds)")
-          //Text("Your score \(score)")
-          //Text("Correct answer \(viewModel.correctAnswerText)")
+            Text("Current Round: \(roundsPlayed) out of \(viewModel.totalRounds)")
+            //Text("Your score \(score)")
+            Text("Correct answer \(viewModel.correctAnswerText)")
             Text("What chord is this?").font(.largeTitle)
             Button("Play Chord") {
                 self.chords.playChord(chord: randChord, instrument: currentInst)
@@ -54,16 +54,16 @@ struct QuizView: View {
                 .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(viewModel.answerText()[1]) {
-                  if roundsPlayed < viewModel.totalRounds - 1 {
-                      roundsPlayed += 1
-                  }
-                  else {
-                      showingAlert.toggle()
-                  }
-                  if viewModel.answerText()[1] == randChord {
-                      score += 1
-                  }
-                  viewModel.advanceGame()
+                    if roundsPlayed < viewModel.totalRounds - 1 {
+                        roundsPlayed += 1
+                    }
+                    else {
+                        showingAlert.toggle()
+                    }
+                    if viewModel.answerText()[1] == randChord {
+                        score += 1
+                    }
+                    viewModel.advanceGame()
                 }
                 .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
@@ -74,32 +74,32 @@ struct QuizView: View {
         VStack {
             HStack {
                 Button(viewModel.answerText()[2]) {
-                  if roundsPlayed < viewModel.totalRounds - 1 {
-                      roundsPlayed += 1
-                  }
-                  else {
-                      showingAlert.toggle()
-                  }
-                  if viewModel.answerText()[2] == randChord {
-                      score += 1
-                  }
-                  viewModel.advanceGame()
+                    if roundsPlayed < viewModel.totalRounds - 1 {
+                        roundsPlayed += 1
+                    }
+                    else {
+                        showingAlert.toggle()
+                    }
+                    if viewModel.answerText()[2] == randChord {
+                        score += 1
+                    }
+                    viewModel.advanceGame()
                 }
                 .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
                 .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(viewModel.answerText()[3]) {
-                  if roundsPlayed < viewModel.totalRounds - 1 {
-                      roundsPlayed += 1
-                  }
-                  else {
-                      showingAlert.toggle()
-                  }
-                  if viewModel.answerText()[3] == randChord {
-                      score += 1
-                  }
-                  viewModel.advanceGame()
+                    if roundsPlayed < viewModel.totalRounds - 1 {
+                        roundsPlayed += 1
+                    }
+                    else {
+                        showingAlert.toggle()
+                    }
+                    if viewModel.answerText()[3] == randChord {
+                        score += 1
+                    }
+                    viewModel.advanceGame()
                 }
                 .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
@@ -109,6 +109,7 @@ struct QuizView: View {
         }
         .alert("You got \(score) right out of \(viewModel.totalRounds)!", isPresented: $showingAlert) {
             Button("Yay!") {
+                viewModel.game.resetAnswers()
                 presentation.wrappedValue.dismiss()
             }
         }
