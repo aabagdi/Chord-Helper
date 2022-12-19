@@ -26,14 +26,14 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 VStack {
-                    Text("Choose a chord")
+                    Text("Choose a chord").font(.largeTitle)
                     Image(systemName: currentInst == "Guitar" ? "guitars.fill" : "pianokeys")
                         .imageScale(.large)
                 }
                 let fullChord = selectedRoot + selectedType
                 HStack {
                     VStack{
-                        Text("Root Note")
+                        Text("Root Note").font(.title3)
                         Picker("Root Note", selection: $selectedRoot) {
                             ForEach(roots, id: \.self) {
                                 item in Text(item)
@@ -43,7 +43,7 @@ struct ContentView: View {
                         .pickerStyle(.wheel)
                     }
                     VStack{
-                        Text("Chord Type")
+                        Text("Chord Type").font(.title3)
                         Picker("Major/Minor", selection: $selectedType) {
                             ForEach(chordType, id: \.self) {
                                 item in Text(item)

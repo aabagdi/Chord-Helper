@@ -23,11 +23,11 @@ struct QuizView: View {
     var body: some View {
         let randChord = viewModel.correctAnswerText
         VStack {
-          Text("Current Round \(roundsPlayed) out of \(viewModel.totalRounds)")
-          Text("Your score \(score)")
-          Text("Correct answer \(viewModel.correctAnswerText)")
-            Text("What chord is this?")
-            Button("Play Chord Again") {
+          Text("Current Round: \(roundsPlayed) out of \(viewModel.totalRounds)")
+          //Text("Your score \(score)")
+          //Text("Correct answer \(viewModel.correctAnswerText)")
+            Text("What chord is this?").font(.largeTitle)
+            Button("Play Chord") {
                 self.chords.playChord(chord: randChord, instrument: currentInst)
             }
             .foregroundColor(Color.white)
@@ -47,12 +47,11 @@ struct QuizView: View {
                     if viewModel.answerText()[0] == randChord {
                         score += 1
                     }
-                    self.chords.playChord(chord: randChord, instrument: currentInst)
                     viewModel.advanceGame()
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
-                .background(Color.white)
+                .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(viewModel.answerText()[1]) {
                   if roundsPlayed < viewModel.totalRounds - 1 {
@@ -64,12 +63,11 @@ struct QuizView: View {
                   if viewModel.answerText()[1] == randChord {
                       score += 1
                   }
-                  self.chords.playChord(chord: randChord, instrument: currentInst)
                   viewModel.advanceGame()
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
-                .background(Color.white)
+                .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
             }
         }
@@ -85,12 +83,11 @@ struct QuizView: View {
                   if viewModel.answerText()[2] == randChord {
                       score += 1
                   }
-                  self.chords.playChord(chord: randChord, instrument: currentInst)
                   viewModel.advanceGame()
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
-                .background(Color.white)
+                .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(viewModel.answerText()[3]) {
                   if roundsPlayed < viewModel.totalRounds - 1 {
@@ -102,12 +99,11 @@ struct QuizView: View {
                   if viewModel.answerText()[3] == randChord {
                       score += 1
                   }
-                  self.chords.playChord(chord: randChord, instrument: currentInst)
                   viewModel.advanceGame()
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
-                .background(Color.white)
+                .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
             }
         }
