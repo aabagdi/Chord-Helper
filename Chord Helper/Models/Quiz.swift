@@ -8,7 +8,14 @@
 import Foundation
 
 class Quiz {
-    private var rounds = Answer.allAnswers
+    private var rounds : [Answer] = [
+        Answer(),
+        Answer(),
+        Answer(),
+        Answer(),
+        Answer(),
+        Answer()
+    ]
     private var currentRoundIndex = 0
     
     var currentRound: Answer {
@@ -27,11 +34,10 @@ class Quiz {
     func resetAnswers() {
         currentRoundIndex = 0
         var newAnswers = [Answer]()
-        for _ in 1...Answer.allAnswers.count {
+        for _ in 1...rounds.count {
             let new = Answer.init()
             newAnswers.append(new)
         }
-        Answer.allAnswers = newAnswers
+        rounds = newAnswers
     }
-    
 }

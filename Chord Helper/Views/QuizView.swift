@@ -23,9 +23,9 @@ struct QuizView: View {
     var body: some View {
         let randChord = viewModel.correctAnswerText
         VStack {
-            Text("Current Round: \(roundsPlayed) out of \(viewModel.totalRounds)")
+            //Text("Current Round: \(roundsPlayed) out of \(viewModel.totalRounds)")
             //Text("Your score \(score)")
-            Text("Correct answer \(viewModel.correctAnswerText)")
+            //Text("Correct answer \(viewModel.correctAnswerText)")
             Text("What chord is this?").font(.largeTitle)
             Button("Play Chord") {
                 self.chords.playChord(chord: randChord, instrument: currentInst)
@@ -64,6 +64,7 @@ struct QuizView: View {
                         score += 1
                     }
                     viewModel.advanceGame()
+                    
                 }
                 .foregroundColor(Color.white)
                 .frame(width: 150, height: 150)
@@ -115,16 +116,3 @@ struct QuizView: View {
         }
     }
 }
-
-/*struct quizButton: View {
- let title: String
- let model: QuizViewModel
- var body: some View {
- Button(title) {
- model.advanceGame()
- }
- .foregroundColor(Color.black)
- .frame(width: 150, height: 150)
- .background(Color.white)
- .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
- } */

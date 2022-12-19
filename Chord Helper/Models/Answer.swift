@@ -47,13 +47,4 @@ struct Answer {
         self.possibleAnswers = answer.1
     }
     
-    static var allAnswers: [Answer] = [
-        Answer(),
-        Answer(),
-        Answer(),
-        Answer(),
-        Answer(),
-        Answer()
-    ]
-    
 }
