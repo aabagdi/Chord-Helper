@@ -14,12 +14,12 @@ class QuizViewModel: ObservableObject {
         game.currentRound.getCorrectAnswer()
     }
     
-    func answerText() -> [String] {
-        game.currentRound.getPossibleAnswers()
-    }
-    
     var totalRounds: Int {
         game.totalRounds
+    }
+    
+    func answerText() -> [String] {
+        return game.currentRound.getPossibleAnswers()
     }
     
     func advanceGame() {

@@ -19,7 +19,6 @@ struct ContentView: View {
     @State var selectedType = "Major"
     @State var currentInst = "Guitar"
     @State var quizOn = false
-    
     @State var showSettings = false
     
     var body: some View {
@@ -27,6 +26,7 @@ struct ContentView: View {
             VStack {
                 VStack {
                     Text("Choose a chord").font(.largeTitle)
+                    Spacer().frame(height: 30)
                     Image(systemName: currentInst == "Guitar" ? "guitars.fill" : "pianokeys")
                         .imageScale(.large)
                 }
