@@ -17,6 +17,8 @@ struct SettingsView: View {
                     Text("Guitar").tag("Guitar")
                     Text("Piano").tag("Piano")})
             }
+            Section("Thanks so much to Sima for her help!") {
+            }
         }
     }
 }

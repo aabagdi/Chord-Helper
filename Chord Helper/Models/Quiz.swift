@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Quiz {
+struct Quiz {
     private var rounds : [Answer] = [
         Answer(),
         Answer(),
@@ -26,12 +26,12 @@ class Quiz {
         rounds.count - 1
     }
     
-    func advanceRound() {
+    mutating func advanceRound() {
         let nextRoundIndex = currentRoundIndex + 1
         currentRoundIndex = nextRoundIndex
     }
     
-    func resetAnswers() {
+    mutating func resetAnswers() {
         currentRoundIndex = 0
         var newAnswers = [Answer]()
         for _ in 1...rounds.count {
