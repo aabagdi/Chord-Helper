@@ -15,6 +15,7 @@ struct QuizView: View {
     @State var score = 0
     @State var roundsPlayed = 0
     @State var showingAlert = false
+    @State var roundNumber = 1
     
     @Environment(\.presentationMode) var presentation
     
@@ -25,10 +26,10 @@ struct QuizView: View {
         let correctAnswer = viewModel.correctAnswerText
         let answers = viewModel.answerText()
         VStack {
-            //Text("Current Round: \(roundsPlayed) out of \(viewModel.totalRounds)")
             //Text("Your score \(score)")
             //Text("Correct answer \(viewModel.correctAnswerText)")
             Text("What chord is this?").font(.largeTitle)
+            Text("Round \(roundNumber) out of \(viewModel.totalRounds)")
             Button("Play Chord") {
                 self.chords.playChord(chord: correctAnswer, instrument: currentInst)
             }
@@ -42,6 +43,7 @@ struct QuizView: View {
             HStack {
                 Button(answers[0]) {
                     if roundsPlayed < viewModel.totalRounds - 1 {
+                        roundNumber += 1
                         roundsPlayed += 1
                     }
                     else {
@@ -58,6 +60,7 @@ struct QuizView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(answers[1]) {
                     if roundsPlayed < viewModel.totalRounds - 1 {
+                        roundNumber += 1
                         roundsPlayed += 1
                     }
                     else {
@@ -78,6 +81,7 @@ struct QuizView: View {
             HStack {
                 Button(answers[2]) {
                     if roundsPlayed < viewModel.totalRounds - 1 {
+                        roundNumber += 1
                         roundsPlayed += 1
                     }
                     else {
@@ -94,6 +98,7 @@ struct QuizView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 Button(answers[3]) {
                     if roundsPlayed < viewModel.totalRounds - 1 {
+                        roundNumber += 1
                         roundsPlayed += 1
                     }
                     else {
