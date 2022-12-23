@@ -29,7 +29,7 @@ struct QuizView: View {
             //Text("Your score \(score)")
             //Text("Correct answer \(viewModel.correctAnswerText)")
             Text("What chord is this?").font(.largeTitle)
-            Text("Round \(roundNumber) out of \(viewModel.totalRounds)")
+            Text("Round\(roundNumber) out of \(viewModel.totalRounds)")
             Button("Play Chord") {
                 self.chords.playChord(chord: correctAnswer, instrument: currentInst)
             }
