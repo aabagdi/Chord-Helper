@@ -26,6 +26,7 @@ struct QuizView: View {
         let correctAnswer = viewModel.correctAnswerText
         let answers = viewModel.answerText()
         VStack {
+            Text("Current Round: \(roundNumber) out of \(viewModel.totalRounds)")
             //Text("Your score \(score)")
             //Text("Correct answer \(viewModel.correctAnswerText)")
             Text("What chord is this?").font(.largeTitle)
