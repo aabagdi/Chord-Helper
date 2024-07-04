@@ -1,6 +1,6 @@
 //
 //  CursedPlayer.swift
-//  fuckin jesus christ gremlin motherfucking madarchod pizdabol chutiya
+//  
 //
 //  Created by Aadit Bagdi on 12/13/22.
 //
